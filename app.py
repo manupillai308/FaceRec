@@ -1,5 +1,6 @@
 from mtcnn.mtcnn import MTCNN
 import cv2
+import sys
 
 # box x,y,width, height
 def draw_image(image, box, face_no):
@@ -19,7 +20,8 @@ def draw_image(image, box, face_no):
 
 detector = MTCNN()
 
-cap = cv2.VideoCapture('../test6.h264')
+path = input("\nEnter path to video file:")
+cap = cv2.VideoCapture(path)
 while(cap.isOpened()):
 	ret, frame = cap.read()
 	if ret==True:
