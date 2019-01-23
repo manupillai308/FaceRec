@@ -3,8 +3,7 @@ import cv2
 import sys
 
 # box x,y,width, height
-def draw_image(image, box, face_no):
-	text = 'Face: {}'.format(face_no)
+def draw_image(image, box):
 	ulx = box[0]
 	uly = box[1]
 	width = box[2]
@@ -37,7 +36,7 @@ while(cap.isOpened()):
 		image = frame[:]
 		for i, faces in enumerate(prediction):
 			box = faces['box']
-			image = draw_image(image, box, i+1)
+			image = draw_image(image, box)
 		cv2.imshow('Output',cv2.resize(image, (1280, 720)))
 	else:
 		break
